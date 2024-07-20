@@ -34,13 +34,12 @@
 
 // EVERYTHING FORWARD IS A TEST ----->>>>
 
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import Lottie from "react-lottie";
 import * as loadingAnimationData from "../../assets/animations/loading.json"; 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api/safewaveai';
+
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/api/typeshitai';
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -59,7 +58,7 @@ function Chat() {
       const response = await axios.post(API_URL, newQuestion, {
         withCredentials: true
       });
-      animateMessage(response.data.data);
+      animateMessage(response.data);
     } catch (error) {
       console.error(error);
     } finally {
@@ -123,9 +122,3 @@ function Chat() {
 }
 
 export default Chat;
-
-
-
-
-   
-
